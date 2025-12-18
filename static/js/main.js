@@ -1,3 +1,30 @@
+// Maintenance mode check
+function checkMaintenanceMode() {
+  // Don't block admin pages or maintenance page
+  if (window.location.pathname.includes('/admin/') || window.location.pathname.includes('maintenance.html')) {
+    return;
+  }
+  
+  const maintenanceMode = localStorage.getItem('maintenance_mode') === 'true';
+  if (maintenanceMode) {
+    window.location.href = 'maintenance.html';
+  }
+}
+
+// Check maintenance mode on page load
+checkMaintenanceMode();
+
+// Listen for storage changes (when maintenance mode is toggled in admin panel)
+// This works across different tabs/windows
+window.addEventListener('storage', function(e) {
+  if (e.key === 'maintenance_mode') {
+    checkMaintenanceMode();
+  }
+});
+
+// Also check periodically (in case storage event doesn't fire in same window)
+setInterval(checkMaintenanceMode, 1000);
+
 document.addEventListener("mousemove", (event) => {
   // Button radial highlight
   document.querySelectorAll(".btn").forEach((btn) => {

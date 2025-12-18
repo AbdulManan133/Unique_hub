@@ -258,6 +258,13 @@ if (document.getElementById('maintenance-toggle')) {
   document.getElementById('maintenance-toggle').addEventListener('change', function() {
     const enabled = toggleMaintenanceMode();
     document.getElementById('maintenance-status-text').textContent = enabled ? 'ON' : 'OFF';
+    
+    // Trigger custom event for same-window maintenance check
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'maintenance_mode',
+      newValue: enabled.toString(),
+      oldValue: (!enabled).toString()
+    }));
   });
   
   // Credentials form
