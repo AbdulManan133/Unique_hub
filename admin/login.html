@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Unique Hub Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-login-container">
+      <div class="admin-login-card">
+        <div class="admin-logo">
+          <span class="logo-mark">UH</span>
+          <span class="logo-text">
+            <span class="logo-main">Admin Panel</span>
+            <span class="logo-sub">Unique Hub Consultant</span>
+          </span>
+        </div>
+        <h2>Sign In</h2>
+        <div id="login-error" class="admin-error" style="display: none;"></div>
+        <form id="login-form" class="admin-form">
+          <div class="form-row">
+            <label>Username</label>
+            <input type="text" id="username" name="username" required autofocus />
+          </div>
+          <div class="form-row">
+            <label>Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Login</button>
+        </form>
+      </div>
+    </div>
+    <script src="../static/js/admin.js"></script>
+  </body>
+</html>
+

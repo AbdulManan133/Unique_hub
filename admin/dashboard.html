@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Unique Hub Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-wrapper">
+      <header class="admin-header">
+        <div class="admin-header-inner">
+          <div class="admin-logo">
+            <span class="logo-mark">UH</span>
+            <span class="logo-text">
+              <span class="logo-main">Admin Panel</span>
+              <span class="logo-sub">Dashboard</span>
+            </span>
+          </div>
+          <a href="#" id="logout-btn" class="btn btn-ghost">Logout</a>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <div class="admin-container">
+          <h1>Dashboard Overview</h1>
+
+          <!-- Stats Cards -->
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <div class="stat-icon">📧</div>
+              <div class="stat-info">
+                <h3 id="total-contacts">0</h3>
+                <p>Total Contact Submissions</p>
+              </div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="stat-icon">🌐</div>
+              <div class="stat-info">
+                <h3 id="maintenance-status-text">OFF</h3>
+                <p>Website Status</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maintenance Toggle -->
+          <div class="admin-section">
+            <h2>Website Control</h2>
+            <div class="admin-control-card">
+              <div class="control-info">
+                <h3>Maintenance Mode</h3>
+                <p>Turn the website on or off for visitors</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="maintenance-toggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Change Credentials -->
+          <div class="admin-section">
+            <h2>Account Settings</h2>
+            <div class="admin-credentials-card">
+              <div class="credentials-header">
+                <div>
+                  <h3>Change Username & Password</h3>
+                  <p>Current username: <strong id="current-username">admin</strong></p>
+                </div>
+              </div>
+              <form id="credentials-form" class="admin-credentials-form">
+                <div id="credentials-error" class="admin-error" style="display: none;"></div>
+                <div id="credentials-success" class="admin-success" style="display: none; white-space: pre-line;"></div>
+                <div class="form-row">
+                  <label for="current-password">Current Password</label>
+                  <input type="password" id="current-password" name="current_password" required placeholder="Enter current password" />
+                </div>
+                <div class="form-row">
+                  <label for="new-username">New Username</label>
+                  <input type="text" id="new-username" name="new_username" required placeholder="Enter new username (min 3 characters)" minlength="3" />
+                </div>
+                <div class="form-row">
+                  <label for="new-password">New Password</label>
+                  <input type="password" id="new-password" name="new_password" required placeholder="Enter new password (min 6 characters)" minlength="6" />
+                </div>
+                <button type="submit" class="btn btn-primary">Update Credentials</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Recent Contact Submissions -->
+          <div class="admin-section">
+            <h2>Recent Contact Submissions</h2>
+            <div id="contacts-container">
+              <div class="admin-empty-state">
+                <p>No contact submissions yet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../static/js/admin.js"></script>
+  </body>
+</html>
+
