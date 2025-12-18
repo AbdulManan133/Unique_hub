@@ -70,8 +70,8 @@ main {
 }
 
 .nav-logo-image {
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 2.8rem;
+  width: 2.8rem;
   border-radius: 0.9rem;
   object-fit: contain;
   box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
@@ -1653,6 +1653,8 @@ main {
 @media (max-width: 720px) {
   .uhc-nav {
     padding-inline: 1.1rem;
+    justify-content: center;
+    position: relative;
   }
 
   .nav-links {
@@ -1687,6 +1689,19 @@ main {
 
   .nav-toggle-label {
     display: inline-flex;
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-logo {
+    margin: 0 auto;
+  }
+
+  .nav-logo-image {
+    height: 3.2rem;
+    width: 3.2rem;
   }
 
   .nav-toggle:checked ~ .nav-links {
