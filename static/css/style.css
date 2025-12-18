@@ -59,14 +59,18 @@ main {
   overflow: hidden;
   background: #ffffff;
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
 }
 
 .banner-image {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-  max-height: 300px;
+  object-fit: contain;
+  max-height: 120px;
 }
 
 .uhc-nav {
@@ -82,15 +86,12 @@ main {
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
 }
 
 .nav-logo-image {
   height: 4.5rem;
-  width: 4.5rem;
-  border-radius: 0.9rem;
+  width: auto;
   object-fit: contain;
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
 }
 
 .logo-mark {
@@ -1793,7 +1794,7 @@ main {
   }
 
   .banner-image {
-    max-height: 200px;
+    max-height: 100px;
   }
 }
 

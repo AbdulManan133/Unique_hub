@@ -86,8 +86,13 @@ function getMaintenanceMode() {
 function toggleMaintenanceMode() {
   initMaintenanceMode();
   const current = getMaintenanceMode();
-  localStorage.setItem('maintenance_mode', (!current).toString());
-  return !current;
+  const newValue = !current;
+  localStorage.setItem('maintenance_mode', newValue.toString());
+  
+  // Force a storage event for same-window detection
+  window.dispatchEvent(new Event('maintenanceModeChanged'));
+  
+  return newValue;
 }
 
 // Get contact submissions
@@ -255,17 +260,16 @@ if (document.getElementById('maintenance-toggle')) {
   }
   
   // Maintenance toggle
-  document.getElementById('maintenance-toggle').addEventListener('change', function() {
-    const enabled = toggleMaintenanceMode();
-    document.getElementById('maintenance-status-text').textContent = enabled ? 'ON' : 'OFF';
-    
-    // Trigger custom event for same-window maintenance check
-    window.dispatchEvent(new StorageEvent('storage', {
-      key: 'maintenance_mode',
-      newValue: enabled.toString(),
-      oldValue: (!enabled).toString()
-    }));
-  });
+  const maintenanceToggle = document.getElementById('maintenance-toggle');
+  if (maintenanceToggle) {
+    maintenanceToggle.addEventListener('change', function() {
+      const enabled = toggleMaintenanceMode();
+      const statusText = document.getElementById('maintenance-status-text');
+      if (statusText) {
+        statusText.textContent = enabled ? 'ON' : 'OFF';
+      }
+    });
+  }
   
   // Credentials form
   const credentialsForm = document.getElementById('credentials-form');
@@ -299,10 +303,13 @@ if (document.getElementById('maintenance-toggle')) {
   });
   
   // Logout button
-  document.getElementById('logout-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    handleLogout();
-  });
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      handleLogout();
+    });
+  }
 }
 
 // Check maintenance mode on main site pages

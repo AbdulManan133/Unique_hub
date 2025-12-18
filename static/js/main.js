@@ -22,6 +22,11 @@ window.addEventListener('storage', function(e) {
   }
 });
 
+// Listen for custom event (for same-window changes)
+window.addEventListener('maintenanceModeChanged', function() {
+  checkMaintenanceMode();
+});
+
 // Also check periodically (in case storage event doesn't fire in same window)
 setInterval(checkMaintenanceMode, 1000);
 
