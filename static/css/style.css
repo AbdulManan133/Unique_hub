@@ -69,6 +69,8 @@ main {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 350px;
+  object-fit: contain;
 }
 
 .uhc-nav {
@@ -1777,6 +1779,10 @@ main {
   .floating-whatsapp {
     right: 1rem;
     bottom: 1rem;
+  }
+
+  .banner-image {
+    max-height: 180px;
   }
 }
 
