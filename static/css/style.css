@@ -69,8 +69,8 @@ main {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 350px;
-  object-fit: contain;
+  min-height: 400px;
+  object-fit: cover;
 }
 
 .uhc-nav {
@@ -1782,7 +1782,7 @@ main {
   }
 
   .banner-image {
-    max-height: 180px;
+    min-height: 200px;
   }
 }
 
