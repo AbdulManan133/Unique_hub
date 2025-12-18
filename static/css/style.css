@@ -66,11 +66,9 @@ main {
 }
 
 .banner-image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
-  max-height: 120px;
 }
 
 .uhc-nav {
@@ -84,14 +82,7 @@ main {
 }
 
 .nav-logo {
-  display: inline-flex;
-  align-items: center;
-}
-
-.nav-logo-image {
-  height: 4.5rem;
-  width: auto;
-  object-fit: contain;
+  display: inline-block;
 }
 
 .logo-mark {
@@ -1751,11 +1742,6 @@ main {
     margin: 0 auto;
   }
 
-  .nav-logo-image {
-    height: 4.8rem;
-    width: 4.8rem;
-  }
-
   .nav-slogan-pill {
     display: none;
   }
@@ -1791,10 +1777,6 @@ main {
   .floating-whatsapp {
     right: 1rem;
     bottom: 1rem;
-  }
-
-  .banner-image {
-    max-height: 100px;
   }
 }
 
